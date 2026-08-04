@@ -1,15 +1,19 @@
 {
   "name": "kestovar-engine",
   "version": "4.3.8",
-  "private": true,
-  "type": "module",
+  "description": "Autonomous AI-native operations engine for one-person companies",
+  "main": "src/worker.mjs",
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "tail": "wrangler tail",
-    "db:migrate": "wrangler d1 migrations apply signalcore-engine-db"
+    "db:migrate": "wrangler d1 migrations apply signalcore-engine-db",
+    "db:backup": "wrangler d1 export signalcore-engine-db --output backup.sql"
   },
-  "dependencies": {
-    "wrangler": "^3.0.0"
+  "keywords": ["cloudflare", "workers", "operations", "autonomous", "ai"],
+  "author": "Kristen",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "wrangler": "^4.86.0"
   }
 }
