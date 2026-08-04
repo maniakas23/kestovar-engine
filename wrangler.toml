@@ -1,0 +1,36 @@
+name = "kestovar-engine"
+main = "src/worker.mjs"
+compatibility_date = "2026-08-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "signalcore-engine-db"
+database_id = "01037e50-b09c-4bac-ac28-7fdc9f536413"
+
+[[queues.producers]]
+binding = "PROD_QUEUE"
+queue = "kestovar-engine-prod-queue"
+
+[[queues.consumers]]
+queue = "kestovar-engine-prod-queue"
+max_batch_size = 10
+max_batch_timeout = 30
+max_retries = 3
+dead_letter_queue = "kestovar-engine-prod-dlq"
+
+[[queues.producers]]
+binding = "ALERT_QUEUE"
+queue = "alert-delivery"
+
+[[queues.consumers]]
+queue = "alert-delivery"
+max_batch_size = 10
+max_batch_timeout = 30
+max_retries = 3
+dead_letter_queue = "alert-dlq"
+
+[triggers]
+crons = ["* * * * *", "1 * * * *", "*/5 * * * *", "0 9 * * *"]
+
+[vars]
+ALLOWED_ORIGINS = "https://gq7xmw5cl7xwq.kimi.page,https://kestovar.app,https://founder.kestovar.app"
