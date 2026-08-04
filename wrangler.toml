@@ -29,8 +29,51 @@ max_batch_timeout = 30
 max_retries = 3
 dead_letter_queue = "alert-dlq"
 
+[[queues.producers]]
+binding = "NOTIF_QUEUE"
+queue = "kestovar-engine-notif-queue"
+
+[[queues.consumers]]
+queue = "kestovar-engine-notif-queue"
+max_batch_size = 5
+max_batch_timeout = 10
+max_retries = 3
+
+[[queues.producers]]
+binding = "DLQ_HANDLER"
+queue = "kestovar-engine-prod-dlq"
+
+[[queues.consumers]]
+queue = "kestovar-engine-prod-dlq"
+max_batch_size = 5
+max_batch_timeout = 30
+max_retries = 0
+
 [triggers]
 crons = ["* * * * *", "1 * * * *", "*/5 * * * *", "0 9 * * *"]
 
 [vars]
-ALLOWED_ORIGINS = "https://gq7xmw5cl7xwq.kimi.page,https://kestovar.app,https://founder.kestovar.app"
+APP_SECRET = "SET_IN_DASHBOARD"
+PUBLIC_APP_NAME = "kestovar-engine"
+SLACK_WEBHOOK_URL = "SET_IN_DASHBOARD"
+OPSGENIE_API_KEY = "SET_IN_DASHBOARD"
+PAGERDUTY_SERVICE_KEY = "SET_IN_DASHBOARD"
+ADMIN_UNION_ID = "0001"
+MS_TEAMS_WEBHOOK_URL = "SET_IN_DASHBOARD"
+DISCORD_WEBHOOK_URL = "SET_IN_DASHBOARD"
+GENERIC_WEBHOOK_URL = "SET_IN_DASHBOARD"
+VAPID_PUBLIC_KEY = "SET_IN_DASHBOARD"
+VAPID_PRIVATE_KEY = "SET_IN_DASHBOARD"
+ALLOWED_ORIGINS = "SET_IN_DASHBOARD"
+NOTIFICATION_EMAIL_FROM = "SET_IN_DASHBOARD"
+TWILIO_SID = "SET_IN_DASHBOARD"
+TWILIO_TOKEN = "SET_IN_DASHBOARD"
+TWILIO_PHONE = "SET_IN_DASHBOARD"
+OWNER_PHONE = "SET_IN_DASHBOARD"
+OWNER_EMAIL = "SET_IN_DASHBOARD"
+OWNER_PUSH_ENDPOINT = "SET_IN_DASHBOARD"
+OWNER_DISCORD_ID = "SET_IN_DASHBOARD"
+OWNER_SLACK_ID = "SET_IN_DASHBOARD"
+CF_API_TOKEN = "SET_IN_DASHBOARD"
+CF_ACCOUNT_ID = "SET_IN_DASHBOARD"
+AI_GATEWAY_URL = "SET_IN_DASHBOARD"
