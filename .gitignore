@@ -1,0 +1,54 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Wrangler secrets
+.wrangler/
+wrangler.toml
+!wrangler.toml.example
+
+# Twilio credentials
+twilio_credentials.json
+*.credentials.json
+
+# API keys and tokens
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Build outputs
+dist/
+build/
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Secret scan reports
+secret-scan-report*.json
+
+# Cloudflare
+.cloudflare/
