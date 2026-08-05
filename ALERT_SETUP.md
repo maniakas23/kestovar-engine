@@ -12,7 +12,7 @@ This guide walks you through setting up SMS alerts for critical incidents in kes
 
 1. Sign up at https://www.twilio.com/try-twilio
 2. Go to **Account Info** in your Twilio Console
-3. Copy your **Account SID** (Account SID: ACOce3fa5b1935cf3409f693n2n6e4)
+3. Copy your **Account SID** (format: ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
 4. Copy your **Auth Token** from the Console
 5. Go to **Phone Numbers** and note your **Twilio Phone Number** (starts with +1)
 
@@ -27,7 +27,7 @@ This guide walks you through setting up SMS alerts for critical incidents in kes
 
 2. Edit `.env` and fill in your credentials:
    ```
-   TWILIO_ACCOUNT_SID=ACOce3fa5b1935cf3409f693n2n6e4
+   TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    TWILIO_AUTH_TOKEN=your_auth_token_here
    TWILIO_PHONE_NUMBER=+1234567890
    MY_PHONE_NUMBER=+1987654321
@@ -37,7 +37,7 @@ This guide walks you through setting up SMS alerts for critical incidents in kes
 
 1. Go to your repository: **Settings → Secrets and variables → Actions**
 2. Add these secrets:
-   - `TWILIO_ACCOUNT_SID`: ACOce3fa5b1935cf3409f693n2n6e4
+   - `TWILIO_ACCOUNT_SID`: (your Account SID from Twilio Console)
    - `TWILIO_AUTH_TOKEN`: (your Auth Token from Twilio Console)
    - `TWILIO_PHONE_NUMBER`: (your Twilio phone number)
    - `MY_PHONE_NUMBER`: (your personal phone number)
@@ -223,7 +223,7 @@ else:
 - Ensure `.env` file is in the correct location
 
 ### "Authentication failed" Error
-- Double-check Account SID (ACOce3fa5b1935cf3409f693n2n6e4) and Auth Token
+- Double-check Account SID and Auth Token from Twilio Console
 - Regenerate Auth Token if needed in Twilio Console
 - Wait 30 seconds after regenerating token
 
