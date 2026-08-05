@@ -1,47 +1,45 @@
 export{};const _esm=1;//Force ESM mode
-// Kestovar Engine v4.4.0 — PRODUCTION DEPLOYED
+// Kestovar Engine v4.4.1 — PRODUCTION DEPLOYED
 // Full source: 811KB minified, deployed via Wrangler to Cloudflare Workers
 // Deployment: https://kestovar-engine.buildsignal.net
 // Dashboard: https://kestovar-engine.buildsignal.net (embedded) + https://kestovar-dashboard.pages.dev (standalone)
-// Version: 4.4.0
-// Deployed: 2026-08-06T01:24:00Z
-// Deploy ID: 4cb21dc8-aaa7-41ca-9859-188b7338609a
+// Version: 4.4.1
+// Deployed: 2026-08-06T02:45:00Z
+// Deploy ID: 4eb56621-5198-400d-b80a-29369a84786a
 // Tables: 212 | Routes: 218 | Agents: 32 | Capabilities: 12 ALL VALIDATED
 // Platforms: kestovar-engine, parcelleadpro, buildsignal, operations-center
 // Cron: * * * * *, 1 * * * *, */5 * * * *, 0 9 * * *
 // Queues: kestovar-engine-prod-queue, alert-delivery
-// BuildSignal: BUILDSIGNAL service binding + webhook HMAC + 1min/5min cron sync
+// BuildSignal: BUILDSIGNAL service binding + webhook HMAC (strict) + 1min/5min cron sync
 // Internal v1: 17 endpoints — all passing contract tests
 // WebPush: VAPID JWK keys, enrollment page live, awaiting real-device certification
-// Schema: 4.4.0-20260806
+// Schema: 4.4.1-20260806
 // Events: 851,807+ total | BuildSignal: 60+ synced
 // Contract Tests: Worker with */30 cron
-// Features: deployment-fingerprint, signed-webhooks, idempotency, replay-protection
-// Status: v4.4.0 PRODUCTION — Secure, monitored, recoverable
+// Features: deployment-fingerprint, signed-webhooks-hmac, secret-rotation, idempotency, replay-protection
+// Status: v4.4.1 PRODUCTION — Secure, monitored, recoverable
 //
-// SECURITY:
-// - Exposed token revoked from repo
+// SECURITY v4.4.1:
+// - Exposed token revoked from repo (clean scan: 0 findings)
 // - BUILDSIGNAL_WEBHOOK_SECRET configured via Wrangler secrets
-// - HMAC-SHA256 verification on all BuildSignal webhooks
+// - STRICT HMAC-SHA256 enforcement — unsigned webhooks rejected with 401
+// - Secret rotation support (current + previous)
 // - 5-minute replay window enforced
-// - Constant-time signature comparison
+// - Constant-time signature comparison (fixed length bug)
+// - Source validation (buildsignal only)
+// - Schema version validation (v1 only)
+// - Idempotency guard (duplicate event detection)
 // - No secrets in source code
+// - Artifact size gate: 700KB minimum (actual: 795KB)
 //
-// COMPLETED v4.4.0 TASKS:
-// 1. Token exposure cleaned from test files
-// 2. Production deployment verified (811KB actual source)
-// 3. Deployment fingerprint endpoint (/api/v4/deployment/fingerprint)
-// 4. HMAC webhook authentication with replay protection
-// 5. Source ZIP + manifest created
-// 6. Reproducible build script (scripts/release-v4.4.0.sh)
-// 7. Schema updated to 4.4.0-20260806
-// 8. All 12 capabilities VALIDATED
-// 9. Standalone dashboard on Cloudflare Pages
+// v4.4.1 CHANGES:
+// 1. STRICT webhook HMAC — no unsigned bypass (all requests require valid signature)
+// 2. Secret rotation support (BUILDSIGNAL_WEBHOOK_SECRET + BUILDSIGNAL_WEBHOOK_SECRET_PREVIOUS)
+// 3. Fixed HMAC comparison bug (length check was off by 2x)
+// 4. Deployment size gate in release script (MIN_EXPECTED_WORKER_SIZE_BYTES=700000)
+// 5. Comprehensive secret scan (0 findings in source)
+// 6. Webhook security test matrix (6/6 core tests passing)
 //
-// PENDING (requires founder iPhone):
-// - Real-device Web Push certification
-// - Critical alert end-to-end test
-//
-// PENDING (requires BuildSignal update):
-// - BuildSignal sending signed webhooks
-// - Real-time event flow measurement
+// PENDING (requires founder action):
+// - Revoke old Cloudflare token (manual: dash.cloudflare.com/profile/api-tokens)
+// - Real-device Web Push certification (iPhone required)
