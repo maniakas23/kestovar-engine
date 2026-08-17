@@ -1,1 +1,29 @@
-REAL_CONTENT_FILE:wrangler.toml
+name = "kestovar-engine"
+main = "worker.js"
+compatibility_date = "2026-08-06"
+
+# PHASE 8 DIFF-GATE MANIFEST — must equal v401 except D1 database_id
+# Secrets (APP_SECRET, BUILDSIGNAL_WEBHOOK_SECRET, VAPID_PRIVATE_KEY, VAPID_PUBLIC_KEY)
+# are NOT declared: wrangler versions upload inherits existing secret bindings from current version.
+
+[vars]
+ALLOWED_ORIGINS = "https://gq7xmw5cl7xwq.kimi.page,https://kestovar.app,https://founder.kestovar.app"
+BUILDSIGNAL_API_URL = "https://api.buildsignal.net"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kestovar-engine-db"
+database_id = "792a09ee-9729-4d91-a0c8-ff7574e90a11"
+
+[[queues.producers]]
+binding = "PROD_QUEUE"
+queue = "kestovar-engine-prod-queue"
+
+[[queues.producers]]
+binding = "ALERT_QUEUE"
+queue = "alert-delivery"
+
+[[services]]
+binding = "BUILDSIGNAL"
+service = "buildsignal-worker"
+environment = "production"

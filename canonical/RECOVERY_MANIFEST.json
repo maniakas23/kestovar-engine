@@ -1,1 +1,58 @@
-REAL_CONTENT_FILE:RECOVERY_MANIFEST.json
+{
+ "artifact": {
+  "file": "kestovar-engine-v5.2.0-recovered-artifact.js",
+  "sha256": "64abf655369844f386d3cdedd493841098263e1af92b6f9e9c186bce3c2d1e04",
+  "sha512": "ca9cb5d7c015a8cf457e94ed745ad5a59b6f7a43d87456d68c5914caff48ae294b211e95475bde35b9b9658914569bb34d9f13301bbe7d4ae35c5ba0105d98f4",
+  "size_bytes": 1043359,
+  "lines": 17301,
+  "authenticity": "HIGH_CONFIDENCE_ACTIVE_SOURCE",
+  "cloudflare_script_etag": "f44d60869216b0aac3fe8d452b718474f0cad644f7d27b4aed83c945f0963496",
+  "note": "Cloudflare version etags are NOT raw-script SHA-256 (proven during recovery); authenticity established via etag identity after upload + behavioral contract."
+ },
+ "recovery": {
+  "recovered_from": "Cloudflare dashboard editor, version b738a414 (Active), three byte-identical captures",
+  "recovered_at": "2026-08-17",
+  "deleted_d1_uuid": "01037e50-b09c-4bac-ac28-7fdc9f536413 (referenced ONLY in binding metadata, never in source)"
+ },
+ "production": {
+  "worker": "kestovar-engine",
+  "version_id": "6732f44d-477c-46c3-ad9b-468e4077ebd7",
+  "deployment_id": "e19485e6-9a3c-432f-b484-7b85a9698233",
+  "promoted_at": "2026-08-17T13:23:55Z",
+  "compatibility_date": "2026-08-06",
+  "handlers": [
+   "fetch",
+   "scheduled",
+   "queue"
+  ]
+ },
+ "binding_manifest": {
+  "d1": {
+   "DB": "kestovar-engine-db / 792a09ee-9729-4d91-a0c8-ff7574e90a11"
+  },
+  "queues": {
+   "PROD_QUEUE": "kestovar-engine-prod-queue",
+   "ALERT_QUEUE": "alert-delivery"
+  },
+  "services": {
+   "BUILDSIGNAL": "buildsignal-worker (production)"
+  },
+  "vars": [
+   "ALLOWED_ORIGINS",
+   "BUILDSIGNAL_API_URL"
+  ],
+  "required_secret_names": [
+   "APP_SECRET",
+   "VAPID_PRIVATE_KEY",
+   "VAPID_PUBLIC_KEY"
+  ],
+  "intentionally_absent": {
+   "BUILDSIGNAL_WEBHOOK_SECRET": "blocked pending BuildSignal sender signing implementation"
+  }
+ },
+ "rollback_points": {
+  "v405": "d5f505d0-155f-4d7b-88e4-206a4eb0b9c5",
+  "v401_broken_deleted_d1": "b738a414-cd1e-4406-976c-86dd713aa138 (DO NOT restore)"
+ },
+ "route_inventory_note": "Route truth derived from recovered source (322 route literals, v1-v9) + live probes. Old 92-route baseline was contaminated by the global pre-router D1 failure and is retired."
+}
