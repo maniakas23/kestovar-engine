@@ -1,0 +1,12 @@
+{
+  "note": "Full RECOVERY_MANIFEST.json preserved in local canonical package; artifact committed alongside this file.",
+  "artifact": "kestovar-engine-v5.2.0-recovered-artifact.js",
+  "artifact_sha256": "64abf655369844f386d3cdedd493841098263e1af92b6f9e9c186bce3c2d1e04",
+  "promoted_version_id": "6732f44d-477c-46c3-ad9b-468e4077ebd7",
+  "deployment_id": "e19485e6-9a3c-432f-b484-7b85a9698233",
+  "promoted_at": "2026-08-17T13:23:55Z",
+  "d1_binding": {"DB": "792a09ee-9729-4d91-a0c8-ff7574e90a11"},
+  "required_secret_names": ["APP_SECRET", "VAPID_PRIVATE_KEY", "VAPID_PUBLIC_KEY"],
+  "intentionally_absent": ["BUILDSIGNAL_WEBHOOK_SECRET"],
+  "rollback": {"v401_b738a414": "DO NOT RESTORE (deleted D1 binding)"}
+}

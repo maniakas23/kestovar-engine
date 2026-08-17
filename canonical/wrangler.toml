@@ -1,0 +1,25 @@
+name = "kestovar-engine"
+main = "kestovar-engine-v5.2.0-recovered-artifact.js"
+compatibility_date = "2026-08-06"
+
+[vars]
+ALLOWED_ORIGINS = "https://buildsignal.net,https://www.buildsignal.net,https://kestovar-ops.buildsignal.net"
+BUILDSIGNAL_API_URL = "https://api.buildsignal.net"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kestovar-engine-db"
+database_id = "792a09ee-9729-4d91-a0c8-ff7574e90a11"
+
+[[queues.producers]]
+binding = "PROD_QUEUE"
+queue = "kestovar-engine-prod-queue"
+
+[[queues.producers]]
+binding = "ALERT_QUEUE"
+queue = "alert-delivery"
+
+[[services]]
+binding = "BUILDSIGNAL"
+service = "buildsignal-worker"
+environment = "production"
